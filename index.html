@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Main Page</title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <style>
+        div {
+            align-content: center;
+            padding: 3px;
+        }        
+
+        li{
+            display: inline;
+        }
+
+        #screen{
+            font-size:large;
+            text-decoration:solid;
+            font-size: x-large;
+        }
+        
+    </style>
+
+    <script>
+        var num, oper, temp, result = "";
+        temp = 0;
+        function input(num) {
+            result += num;
+            document.getElementById("screen").innerHTML = result;
+            console.log(result);
+        }
+
+        function oprtn(op) {
+            oper = op;
+            if (oper == "+") {
+                document.getElementById("screen").innerHTML = "0";
+                temp = result;
+                result = '';
+            }
+            if (oper == "-") {
+                document.getElementById("screen").innerHTML = "0";
+                temp = result;
+                result = '';
+            }
+            if (oper == "/") {
+                document.getElementById("screen").innerHTML = "0";
+                temp = result;
+                result = '';
+            }
+            if (oper == "*") {
+                document.getElementById("screen").innerHTML = "0";
+                temp = result;
+                result = '';
+            }
+            console.log("op  " +result);
+        }
+
+         function equal()
+         {
+             var a, b, res;
+
+             a = parseFloat(temp);
+             b = parseFloat(result);
+             console.log("a = " + a + " b = " + b + "oper " + oper);
+             if (oper == "+") {
+                 res = a + b;
+             }
+             if (oper == "-") {
+                 res = a - b;
+             }
+             if (oper == "/") {
+                 res = a / b;
+             }
+             if (oper == "*") {
+                 res = a * b;
+             }
+
+             document.getElementById("screen").innerHTML = res;
+         }
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <div id="head" class="text-info"><b><h1>CALCULATOR</h1></b></div>
+        <div id="screen"><b><h2>0</h2></b></div>
+        <div id="keypad" >
+            <ul>
+                <li><input type="button" class="btn-info btn-lg" value="7" onclick="input('7')"></li>
+                <li><input type="button" class="btn-info btn-lg" value="8" onclick="input('8')"></li>
+                <li><input type="button" class="btn-info btn-lg" value="9" onclick="input('9')"></li>
+                <li><input type="button" class="btn-danger btn-lg" value="/" onclick="oprtn('/')"></li>
+            </ul>
+            <ul >
+                <li><input type="button" class="btn-info btn-lg" value="4" onclick="input('4')"></li>
+                <li><input type="button" class="btn-info btn-lg" value="5" onclick="input('5')"></li>
+                <li><input type="button" class="btn-info btn-lg" value="6" onclick="input('6')"></li>
+                <li><input type="button" class="btn-danger btn-lg" value="*" onclick="oprtn('*')" ></li>
+            </ul>
+            <ul> 
+                <li><input type="button" class="btn-info btn-lg" value="1" onclick="input('1')"></li>
+                <li><input type="button" class="btn-info btn-lg" value="2" onclick="input('2')"></li>
+                <li><input type="button" class="btn-info btn-lg" value="3" onclick="input('3')"></li>
+                <li><input type="button" class="btn-danger btn-lg" value="-" onclick="oprtn('-')"></li>
+            </ul>
+            <ul >
+                <li><input type="button" class="btn-info btn-lg" value="." onclick="input('.')"></li>
+                <li><input type="button" class="btn-info btn-lg" value="0" onclick="input('0')"></li>
+                <li><input type="button" class="btn-success btn-lg" value="=" onclick="equal()" ></li>
+                <li><input type="button" class="btn-danger btn-lg" value="+" onclick="oprtn('+')"></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
